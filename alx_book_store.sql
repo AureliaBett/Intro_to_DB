@@ -57,6 +57,6 @@ CREATE TABLE IF NOT EXISTS Order_Details (
     ON UPDATE CASCADE
     ON DELETE CASCADE,
   CONSTRAINT `fk_orderdetails_book`
-    FOREIGN KEY (book_id) REFERENCES Books (book_id)
+    FOREIGN KEY (book_id) REFERENCES Books(book_id)
 
 ) 

@@ -1,9 +1,7 @@
--- alx_book_store.sql
--- Schema for database: alx_book_store
--- NOTE: Running this file will DROP the database first (remove the DROP line if you want to keep existing data).
+
 
 DROP DATABASE IF EXISTS `alx_book_store`;
-CREATE DATABASE IF NOT EXISTS `alx_book_store` CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+CREATE DATABASE IF NOT EXISTS alx_book_store CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 USE `alx_book_store`;
 
 -- Authors table (create first because Books references it)

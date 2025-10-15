@@ -5,23 +5,23 @@ CREATE DATABASE IF NOT EXISTS alx_book_store CHARACTER SET = utf8mb4 COLLATE = u
 USE `alx_book_store`;
 
 -- Authors table (create first because Books references it)
-CREATE TABLE IF NOT EXISTS `Authors` (
-  `author_id` INT NOT NULL AUTO_INCREMENT,
-  `author_name` VARCHAR(215) NOT NULL,
-  PRIMARY KEY (`author_id`)
+CREATE TABLE IF NOT EXISTS Authors (
+  author_id INT NOT NULL AUTO_INCREMENT,
+  author_name VARCHAR(215) NOT NULL,
+  PRIMARY KEY (author_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- Books table
-CREATE TABLE IF NOT EXISTS `Books` (
-  `book_id` INT NOT NULL AUTO_INCREMENT,
-  `title` VARCHAR(130) NOT NULL,
-  `author_id` INT NOT NULL,
-  `price` DOUBLE NOT NULL DEFAULT 0.00,
-  `publication_date` DATE DEFAULT NULL,
-  PRIMARY KEY (`book_id`),
-  INDEX `idx_books_author_id` (`author_id`),
+CREATE TABLE IF NOT EXISTS Books (
+  book_id INT NOT NULL AUTO_INCREMENT,
+  title VARCHAR(130) NOT NULL,
+  author_id INT NOT NULL,
+  price DOUBLE NOT NULL DEFAULT 0.00,
+  publication_date DATE DEFAULT NULL,
+  PRIMARY KEY (book_id),
+  INDEX idx_books_author_id (author_id),
   CONSTRAINT `fk_books_author`
-    FOREIGN KEY (`author_id`) REFERENCES `Authors` (`author_id`)
+    FOREIGN KEY (author_id) REFERENCES Authors (author_id)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

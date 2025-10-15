@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS Orders (
    
   INDEX idx_orders_customer_id (customer_id),
   CONSTRAINT `fk_orders_customer`
-    FOREIGN KEY (customer_id) REFERENCES Customers (customer_id)
+    FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)
 
 ) 
 
@@ -50,10 +50,10 @@ CREATE TABLE IF NOT EXISTS Order_Details (
   book_id INT NOT NULL,
   quantity DOUBLE NOT NULL DEFAULT 1,
   PRIMARY KEY (orderdetailid),
-  INDEX idx_orderdetails_order_id (`order_id`),
-  INDEX idx_orderdetails_book_id (`book_id`),
+  INDEX idx_orderdetails_order_id (order_id),
+  INDEX idx_orderdetails_book_id (book_id),
   CONSTRAINT `fk_orderdetails_order`
-    FOREIGN KEY (order_id) REFERENCES Orders (order_id)
+    FOREIGN KEY (order_id) REFERENCES Orders(order_id),
     ON UPDATE CASCADE
     ON DELETE CASCADE,
   CONSTRAINT `fk_orderdetails_book`

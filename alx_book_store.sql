@@ -4,14 +4,13 @@ DROP DATABASE IF EXISTS `alx_book_store`;
 CREATE DATABASE IF NOT EXISTS alx_book_store CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
 USE `alx_book_store`;
 
--- Authors table (create first because Books references it)
+
 CREATE TABLE IF NOT EXISTS Authors (
   author_id INT NOT NULL AUTO_INCREMENT,
   author_name VARCHAR(215) NOT NULL,
   PRIMARY KEY (author_id)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) 
 
--- Books table
 CREATE TABLE IF NOT EXISTS Books (
   book_id INT NOT NULL AUTO_INCREMENT,
   title VARCHAR(130) NOT NULL,
@@ -24,17 +23,15 @@ CREATE TABLE IF NOT EXISTS Books (
     FOREIGN KEY (author_id) REFERENCES Authors (author_id)
     ON UPDATE CASCADE
     ON DELETE RESTRICT
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) 
 
--- Customers table
-CREATE TABLE IF NOT EXISTS `Customers` (
-  `customer_id` INT NOT NULL AUTO_INCREMENT,
-  `customer_name` VARCHAR(215) NOT NULL,
-  `email` VARCHAR(215) DEFAULT NULL,
-  `address` TEXT,
-  PRIMARY KEY (`customer_id`),
-  UNIQUE KEY `uq_customers_email` (`email`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS Customers (
+  customer_id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  customer_name VARCHAR(215) NOT NULL,
+  email VARCHAR(215) DEFAULT NULL UNIQUE,
+  address TEXT,
+) 
 
 -- Orders table
 CREATE TABLE IF NOT EXISTS `Orders` (

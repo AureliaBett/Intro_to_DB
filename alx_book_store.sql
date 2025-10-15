@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS `alx_book_store`;
+CREATE DATABASE `alx_book_store` CHARACTER SET = utf8mb4 COLLATE = utf8mb4_unicode_ci;
+USE `alx_book_store`;
 
 CREATE TABLE `Books` (
   book_id INT NOT NULL PRIMARY KEY,
